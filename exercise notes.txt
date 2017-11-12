@@ -1,0 +1,11 @@
+Analysis Exercise Notes
+
+library(pegas)
+x<-read.loci(file="./ynpDat.txt", header = TRUE, allele.sep = "/")
+data<-loci2genind(x)
+
+groups<-find.clusters(data)  ##Maybe 75 pcs and 10 groups
+
+dapc<-dapc(data, groups$grp)  ##Maybe 75 pcs and 6 dfs
+
+scatter(dapc)
