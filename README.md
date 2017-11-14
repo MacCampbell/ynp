@@ -7,4 +7,4 @@ Pearse DE and Campbell MA. 2017. Genetic analysis of _Oncorhynchus mykiss_ in th
 
 ## Guidelines to Working Through
 1. For data analysis for population structuring look at analysis.R and analysis.md
-2. For identifying alelle frequencies of Omy5 lok at TBD
+2. For identifying alelle frequencies of Omy5 look at TBD

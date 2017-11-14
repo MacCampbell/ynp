@@ -52,7 +52,7 @@ tenPops<-finalData[finalData$N>9,]
 
 final10<-final[pop=tenPops$Pop]
 
-  *What are tenPops and final10? We can view with RStudio
+  * What are tenPops and final10? We can view with RStudio
 typeof(tenPops)
 
 ### Look at population relationships with DAPC
@@ -62,7 +62,7 @@ help("dapc")
 dapc(final10)  
 finalDapc<-dapc(final10, n.pca=75, n.da=nPop(final10)-1 )  
 scatter(finaldapc)  
-  *We can make it look better
+  * We can make it look better
 
 scatter(finalDapc,xax=2, yax=1, scree.da=FALSE, include.origin=FALSE,  addaxes = FALSE)
 
