@@ -29,12 +29,12 @@ alphabet <- c()
 
   * But we can add things to alphabet easily, note the $ sign is accessing a field (like the trunk of a car) 
 
-alphabet\$Numbers<-numbers
+alphabet\$Numbers<-numbers  
 alphabet\$Letters<-letters
 
   * What does alphabet have in it now?
 
-\> alphabet
+\> alphabet  
 \$Numbers
 [1] 1 2 3 4
 
@@ -48,9 +48,10 @@ typeof(alphabet)
 # 3.  A basic operation, reading in data
 Often, I have data in a text file such as .csv, that I'd like to do some analysis on. There is a handy R function for that.
 
-  * Use read.csv to assign the contents of the file dfA.csv to the object "data"
+  * Use read.csv to assign the contents of the file dfA.csv located in the data subdirectory to the object "data"
   
 # 4.  Operate on the new object "data"
+  * The file contains allele frequency information from 15 populations. This is the anadromy associated (MAR type A) allele, and we have sample size information.
 
 summary(data)
 
@@ -59,5 +60,61 @@ summary(data)
   * Install dplyr and ggplot2 and load these packages with "install.packages"
   * Load the packages with "library"
   * We'll convert data to a tibble and plot with ggplot
+
+tibble<-tbl_df(data)
+
+  * With dplyr, we can manipulate our tibble. For example, we may want with a biallelic SNP to know the frequency of the alternative alele. We can use "mutate" to do this easily taking advantage of dplyr. There are a lot of possible things you can do we won't talk about now.
+
+tibble %>% mutate(AltFrequency = (1-Frequency))
+
+  * A simple ggplot bar plot
+
+ggplot(tibble)+geom_bar(aes(Population, Frequency), stat="identity")  
+
+![Very Basic Plot](./examples/bplot1.png)  
+
+(Eehhwww, looks bad)  
+
+  * This looks better  
+  
+ggplot(tibble, aes(Population, Frequency, fill=Allele)) +  
+    geom_bar(position=position_dodge(width=0.5), width = 0.7, stat="identity", color="black") +  
+    theme(axis.text.x = element_text(angle = 90))  
+
+![Basic Plot](./examples/bplot2.png)  
+
+
+### We can go on and on making things look nicer with ggplot. It has a lot of functions and you'll probably connect some figures to ggplot from the lecture material.
+
+### I like the automatic nature of ggplot, I'll show you what I mean.
+
+  *  Let's see features of ggplot by making up some data, say the alternative allele from tibble  
+
+tibble2 <- tibble %>% group_by(Population, Allele="R04944.1", Frequency=(1-Frequency)) %>% full_join(tibble)
+
+  * Let's talk about this command for a second ...
+  
+ggplot(tibble2, aes(Population, Frequency, fill=Allele)) +  
+    geom_bar(position=position_dodge(width=0.5), width = 0.7, stat="identity", color="black") +  
+    theme(axis.text.x = element_text(angle = 90))  
+
+![](./examples/bplot3.png)  
+
+
+  * These two alleles aren't the most interesting, but the automatic nature of ggplot color codes and labels the alternative alleles now!  
+  
+  *  Perhaps more usefully, we can split the plots using facet_grid  
+  
+  ggplot(tibble2, aes(Population, Frequency, fill=Allele)) +  
+    geom_bar(position=position_dodge(width=0.5), width = 0.7, stat="identity", color="black") +  
+    theme(axis.text.x = element_text(angle = 90)) +  
+    facet_grid(Allele ~ .)  
+
+![](./examples/bplot4.png)  
+
+### Wow! Look at all the great stuff somehow has already made for you. Now that you know about them, take a look at the official pages sometime.  
+
+http://dplyr.tidyverse.org  
+http://ggplot2.tidyverse.org  
 
 

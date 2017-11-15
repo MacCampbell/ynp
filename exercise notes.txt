@@ -1,4 +1,9 @@
-Analysis Exercise Notes
+#Rbasics2
+
+data2 <- data %>% mutate(SE = sqrt((Frequency * (1-Frequency))/(2 * N)))
+
+
+#Analysis Exercise Notes
 
 library(pegas)
 x<-read.loci(file="./ynpDat.txt", header = TRUE, allele.sep = "/")
