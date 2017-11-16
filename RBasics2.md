@@ -36,4 +36,26 @@ data<-tbl_df(read.csv("./data/dfA.csv"))
   sqrt((0.19047619\*(1-0.19047619)/(2*85)))  
   
 Just do it fifteen times really fast!
- 
+
+### Now, to plot.  Thankfully, there is a built error bar plotting feature of ggplot.
+
+1. Generate a bar plot
+
+ggplot(data2, aes(Population,Frequency)) +  
+    geom_bar(stat="identity", fill="blue")
+
+2. Add error bars
+
+ggplot(data2, aes(Population,Frequency)) +  
+   geom_bar(stat="identity", fill="blue") +  
+   geom_errorbar(aes(x=Population, ymin=Frequency - SE, ymax=Frequency + SE), size=1, width=0.75)
+
+3. Make it look a bit nicer
+
+ggplot(data2, aes(Population,Frequency)) +  
+    geom_bar(stat="identity", fill="blue") +  
+    geom_errorbar(aes(x=Population, ymin=Frequency - SE, ymax=Frequency + SE), size=1, width=0.75) +  
+    theme_classic() +  
+    theme(axis.text.x = element_text(angle = 90))  
+
+![](./examples/sePlot.png)  

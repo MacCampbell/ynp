@@ -1,5 +1,5 @@
 #Here, we generate bar plots of omy05 frequencies
-
+library("poppr")
 library("pegas")
 library("adegenet")
 library("plyr")
