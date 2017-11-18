@@ -1,8 +1,45 @@
+#Rbasics1 Histogram
+
+ggplot(tibble2, aes(Frequency, fill=Allele)) +  
+    geom_histogram(bins=20) +  
+    theme(axis.text.x = element_text(angle = 90)) +  
+    facet_grid(Allele ~ .)  
+
+
 #Rbasics2
 
 data2 <- data %>% mutate(SE = sqrt((Frequency * (1-Frequency))/(2 * N)))
 
+## Error bars 2.
+ggplot(data2, aes(Population,Frequency)) +  
+   geom_bar(stat="identity", fill="blue") +  
+   geom_errorbar(aes(x=Population, ymin=Frequency - SE, ymax=Frequency + SE), size=1, width=0.75)
 
+## Error bars 3
+ggplot(data2, aes(Population,Frequency)) +  
+    geom_bar(stat="identity", fill="blue") +  
+    geom_errorbar(aes(x=Population, ymin=Frequency - SE, ymax=Frequency + SE), size=1, width=0.75)+
+  theme_classic()+
+  theme(axis.text.x=element_text(angle=90))
+
+data3 <- data2 %>% mutate(He = 2*(Frequency)*(1-Frequency))
+
+## N vs HE
+
+Basic
+
+ggplot(data3)+geom_point(aes(x=N, y=He))
+
+trendline
+
+ggplot(data3)+geom_point(aes(x=N, y=He))+geom_smooth(aes(x=N, y=He), method='lm', se=FALSE)
+
+lm
+
+lm(data3$He ~ data3$N)
+
+fit<-lm(data3$He ~ data3$N)
+summary(fit)
 #Analysis Exercise Notes
 
 library(pegas)
