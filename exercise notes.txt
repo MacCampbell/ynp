@@ -43,6 +43,48 @@ summary(fit)
 
 #popGen.md
 
+1.
+x<-read.loci(file="./ynpDat.txt", header = TRUE, allele.sep = "/", col.pop=1)
+obj<-loci2genind(x)
+
+2.
+
+3. qc
+
+obj3<-missingno(obj3, type="loci")
+
+> obj3<-missingno(obj3, type="loci")
+
+Found 2526 missing values.
+
+2 loci contained missing values greater than 5%
+
+Removing 2 loci: SH117370400, SH101770410
+
+> obj3<-missingno(obj3, type="geno")
+
+Found 2232 missing values.
+
+29 genotypes contained missing values greater than 5%
+
+Removing 29 genotypes: 074, 123, 183, 191, 230, 233, 275, 285, 363, 402, 410, 607, 608,
+609, 610, 641, 658, 667, 675, 680, 689, 710, 712, 731, 798, 824, 828, 831, 836
+
+4. Population data.
+
+filtered<-obj3[pop=(table[table$N>10,]$Pop)]
+
+
+6B.
+
+treeF<-aboot(filtered, strata=filtered@pop, tree="nj",distance="edwards.dist",missing="mean", cutoff=50, sample=1000) 
+plot.phylo(treeF, type="radial",show.node.label = TRUE)
+
+6C. Find clusters, 
+
+PC choice?
+
+Cluster Choice?
 
 #Analysis Exercise Notes
 

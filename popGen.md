@@ -123,3 +123,52 @@ Task: Create a fourth genind object "filtered" including only populaitons greate
 
 ### 5. AARRGGGHHH, but we haven't done any analyses yet!! I know, but this up front wrangling is the most time consuming and I wanted to provide several examples of cases you may experience first hand.
 
+### 6. Population structure. Commonly, we want to know if we have significantly differentiated populations. With a genind object we have several options.
+
+#### 6A: Fst
+Install the package hierfstat and load it. It has the handy funtion, pairwise.fst. You can quite easily create a Fst matrix with it.
+
+| | 1 | 2 | 3 |  
+|----|----|----|----|  
+| __2__ | 0.036488058 |  |  |                                                                    
+| __3__ | 0.035212119 | 0.063240601 |                                                             
+| __4__ | 0.030624460 | 0.050709032 | 0.080809549 | 
+
+This is a good place to start when looking at relatedness of populations.
+
+fsts<-pairwise.fst(filtered)
+
+Would you say that our data have high Fst values? This is discussed a bit in Campbell and Pearse (2017).
+
+#### 6B: Phylogenetic trees
+
+I have a long history with fish phylogenetics, and therefore making phylogenetic trees is something I often do when looking at populations. 
+
+Poppr has a handly function, "aboot". Let's look it up in the manual. My suggestion is to use chord distances and generate a Neighbor-Joining population level tree using predefined populations (the \@pop vector).
+
+---
+
+##### Generate tree with aboot considering the following: 
+1. Neighbor-Joining
+2. Chord-distances
+3. A meaningful nuber of resamplings (at least 1000)
+4. A cutoff for support
+
+You may change the presentation with "plot.phylo" in the ape package e.g.
+
+plot.phylo(treeF, type="radial",show.node.label = TRUE)
+
+![This Tree Is Not Pretty](./examples/grossTree.png)  
+
+I always process after the fact with separate programs for publciation quality trees.
+
+5. What relationships are meaningful on the tree in context of geography?
+
+
+![](./examples/Figure1.png)  
+
+#### 6C: Objective Clustering
+STRUCTURE is a perennial favorite, but we will look at DAPC, part of the adegenet package on another page. But, let's save our work.
+
+save(filtered, file="filtered.rda")
+
