@@ -40,6 +40,10 @@ lm(data3$He ~ data3$N)
 
 fit<-lm(data3$He ~ data3$N)
 summary(fit)
+
+#popGen.md
+
+
 #Analysis Exercise Notes
 
 library(pegas)
