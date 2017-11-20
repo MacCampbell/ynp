@@ -2,6 +2,11 @@
 
 Keep in mind that these are what I consider basically useful, and may not be something basic as in useful. That is, these may not all be simple examples, but they cover core needs I have in my work.
 
+Survey:
+  *  Who uses R now? For what?  
+  *  Do people use the tidyverse?  
+  *  What are the most desirable things that you'd want to learn to do with R?  
+
 # 1.  R ... What is? And, why should you care.
 
 https://www.r-project.org "R is a free software environment for statistical computing and graphics."
@@ -45,22 +50,30 @@ alphabet\$Letters<-letters
 
   * What type of data structure is alphabet?
 
-typeof(alphabet)
+typeof(alphabet) 
 
----
+---  
+  
 Time for a little task. You can also use a command to combine two vectors. These could be cbind, rbind or data.frame. Try to create an object using all three and see what they look like.
 
 Where to start? help("rbind") If you are stuck, always look at the documentation.  
+
 Which is most like alphabet?
 
 # 3.  A basic operation, reading in data
-Often, I have data in a text file such as .csv, that I'd like to do some analysis on. There is a handy R function for that.
----
-Use read.csv to assign the contents of the file dfA.csv located in the data subdirectory to the object "data"
+Often, I have data in a text file such as .csv, that I'd like to do some analysis on. There is a handy R function for that. 
+
+---  
+
+Use read.csv to assign the contents of the file dfA.csv located in the data subdirectory to the object "data"  
   
-Don't forget, you can always look at help(read.csv)
+Don't forget, you can always look at help(read.csv)  
+
+---  
+
+Note: I chose .csv on example on purpose as it is an easy way for people to store data. dfA.csv worked because it was supposed to. However, you may not have a tab delimited text file or ??? There is flexibility to handle these, even genalex and other common formats such as genetix.  
   
-# 4.  Operate on the new object "data"
+# 4.  Operate on the new object "data"  
   * The file contains allele frequency information from 15 populations. This is the anadromy associated (MAR type A) allele, and we have sample size information.
 
 You can preview part of the data like so:  
@@ -90,6 +103,8 @@ N is the number of individuals for each population. How many individuals total w
 
   * R is also very good at getting a "subset" of the data.  
   
+---  
+  
 Identify the populations in which the Frequency of R04944.4 is greater than the mean... With R, not by looking at the data!!!
 
 # 5.  We can gain access to new functions outside base R with packages.
@@ -105,6 +120,11 @@ Note: A tibble is a type of data frame, an object that contains vectors of the s
   * With dplyr, we can manipulate our tibble. For example, we may want with a biallelic SNP to know the frequency of the alternative alele. We can use "mutate" to do this easily taking advantage of dplyr. There are a lot of possible things you can do we won't talk about now.
 
 tibble \%\>\% mutate(AltFrequency = (1-Frequency))
+
+|breakdown|||
+|--------|--------|---------------------------------------------|  
+| object | "pipe"  | dplyr function (NewVariable = (1-OldVariable)) |  
+| tibble | %>%     | mutate(AltFrequency = (1-Frequency)) |  
 
   * A simple ggplot bar plot, ggplot is designed to work with data frames
 
@@ -159,7 +179,9 @@ ggplot(tibble2, aes(Population, Frequency, fill=Allele)) +
 
 ---
 
-  * Another helpful thing to do is make histograms. With tibble2, create histograms for both alleles with ggplot.
+  * Another helpful thing to do is make histograms.  
+
+With tibble2, create histograms for both alleles with ggplot.  
 
 ![](./examples/histo.png)  
 

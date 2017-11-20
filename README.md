@@ -8,4 +8,4 @@ The data are from a report examining the origins and relationships of Yosemite N
 Pearse DE and Campbell MA. 2017. Genetic analysis of _Oncorhynchus mykiss_ in the Upper Tuolumne and Merced Rivers to evaluate ancestry and adaptive genetic variation. National Marine Fisheries Service, West Coast Region California Central Valley Office, Federal Energy Regulatory Commission Branch Report
 
 ## Guidelines to Working Through
-I would suggest opening a .md file as an .html and logging useful commands to a separate new .R file.
+I would suggest opening a .md file as an .html and logging useful commands to a separate new .R file to save progress. I did not inclde all the answers in the scripts.
