@@ -1,5 +1,7 @@
 # For the purposes of the SEDES workshop we are going to cover some R Basics.
 
+Keep in mind that these are what I consider basically useful, and may not be something basic as in useful. That is, these may not all be simple examples, but they cover core needs I have in my work.
+
 # 1.  R ... What is? And, why should you care.
 
 https://www.r-project.org "R is a free software environment for statistical computing and graphics."

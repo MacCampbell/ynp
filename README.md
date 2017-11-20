@@ -8,6 +8,4 @@ The data are from a report examining the origins and relationships of Yosemite N
 Pearse DE and Campbell MA. 2017. Genetic analysis of _Oncorhynchus mykiss_ in the Upper Tuolumne and Merced Rivers to evaluate ancestry and adaptive genetic variation. National Marine Fisheries Service, West Coast Region California Central Valley Office, Federal Energy Regulatory Commission Branch Report
 
 ## Guidelines to Working Through
-1. For data analysis for population structuring look at analysis.R and analysis.md
-2. For identifying alelle frequencies of Omy5 look at TBD
-3. Tutorial scripts for R, with RBasics.md and RBasics2.md have been made.
+I would suggest opening a .md file as an .html and logging useful commands to a separate new .R file.

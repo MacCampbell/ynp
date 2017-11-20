@@ -22,7 +22,7 @@ data<-tbl_df(read.csv("./data/dfA.csv"))
  
 ---
  
-   * With the mutate function in dplyr, can you add another column to the data tibble with SE? If you can, name it data2 and have it look like this:
+##### With the mutate function in dplyr, can you add another column to the data tibble with SE? If you can, name it data2 and have it look like this:
    
 
 \> data2  
@@ -44,7 +44,10 @@ Just do it fifteen times really fast!
 1. Generate a bar plot
 
 ggplot(data2, aes(Population,Frequency)) +  
-    geom_bar(stat="identity", fill="blue")
+    geom_bar(stat="identity", fill="blue")  
+    
+![](./examples/baseBar.png)  
+
 
 2. Add error bars, with geom_errorbar, it should look like this:
 
@@ -88,7 +91,7 @@ Plot N on the X and He on the Y with geom_point.
 
 ![](./examples/NanHE.png)  
 
-Now, include a trendline  
+Now, include a trendline with geom_smooth  
 
 ![](./examples/trend.png)  
 

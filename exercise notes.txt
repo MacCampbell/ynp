@@ -86,6 +86,29 @@ PC choice?
 
 Cluster Choice?
 
+
+#basicDAPC
+
+objDAPC<-dapc(filtered,groups$grp, n.pca=65, n.da=12)
+scatter(objDAPC, scree.da=FALSE)
+
+
+the ggplot assignplot
+assigndf<-as.data.frame(table(pop(filtered), objDAPC$grp))
+assigndf<-subset(assigndf, assigndf$Freq>0)
+
+ggplot(assigndf, aes(Var1, Var2))+
+  geom_point(aes(x=Var1, y=Var2, size=Freq))+
+  theme(axis.title.y = element_text(size = rel(2)))+
+  theme(axis.title.x = element_text(size = rel(2)))+
+  theme(axis.text.x = element_text(angle = 90))+
+  labs(x="\nSampling Location", y="Inferred Group\n")+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))+
+  theme(text=element_text(family='Times'))+
+  theme(axis.text.x= element_text(face="bold", size=10, vjust = 0.5))+
+  theme(axis.text.y= element_text(face="bold", size=10))
+
 #Analysis Exercise Notes
 
 library(pegas)
