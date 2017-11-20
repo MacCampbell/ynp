@@ -4,7 +4,7 @@
 
 Source paper: https://bmcgenet.biomedcentral.com/articles/10.1186/1471-2156-11-94
 
-The corresponding R package is extensively documented by Thibaut Jombart and many resources are already available, especially for the adegenet package. https://github.com/thibautjombart/adegenet/wiki/Tutorials  
+The corresponding R package is extensively documented by Thibaut Jombart and many resources are already available. https://github.com/thibautjombart/adegenet/wiki/Tutorials  
 
 The main take home from me from __D__ iscriminant __A__ nalysis of __P__ rincipal __C__ omponents (DAPC) is that you can infer the number of groups (aka genetic clusters) from your data without prior knowledge.  This is a task we do subjectively all the time. What makes a sampling location? How many clades are meaningful? Etc.
 
@@ -156,5 +156,11 @@ To get from Basic to Nicer I used the following:
   theme(text=element_text(family='Times'))+  
   theme(axis.text.x= element_text(face="bold", size=10, vjust = 0.5))+  
   theme(axis.text.y= element_text(face="bold", size=10))  
+
+---
+
+For a challenge, you can plot individuals with coordinates from DAPC and from PCA and see the differences. Generating PCA is covered in the adegenet tutorial material.   
+
+https://github.com/thibautjombart/adegenet/raw/master/tutorials/tutorial-basics.pdf
 
 

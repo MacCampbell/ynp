@@ -1,6 +1,6 @@
 # For the purposes of the SEDES workshop we are going to cover some R Basics.
 
-Keep in mind that these are what I consider basically useful, and may not be something basic as in useful. That is, these may not all be simple examples, but they cover core needs I have in my work.
+Keep in mind that these are what I consider basically useful, and may not be something basic. That is, these may not all be simple examples, but they cover core needs I have in my work.
 
 Survey:
   *  Who uses R now? For what?  
